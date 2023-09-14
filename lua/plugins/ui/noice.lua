@@ -1,6 +1,17 @@
 return {
-  --   {
-  --     "folke/noice.nvim",
+    {
+      "folke/noice.nvim",
+      opts = function(_, opts)
+            opts.routes = {
+                { -- filter write messages "xxxL, xxxB"
+                    filter = {
+                        event = "msg_show",
+                        find = "AutoSave",
+                    },
+                    opts = { skip = true },
+                },
+            }
+        end,
   --     opts = {
   --       cmdline = { view = "cmdline" },
   --       presets = {
@@ -11,5 +22,5 @@ return {
   --       require("telescope").load_extension("noice")
   --       require("noice").setup(opts)
   --     end,
-  --   },
+    },
 }
