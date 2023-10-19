@@ -7,4 +7,5 @@ return {
   -- { import = "lazyvim.plugins.extras.lang.python" },
   { import = "lazyvim.plugins.extras.ui.edgy" },
   { import = "lazyvim.plugins.extras.lang.python-semshi" },
+  { import = "lazyvim.plugins.extras.lsp.none-ls" }
 }
