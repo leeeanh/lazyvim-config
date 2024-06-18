@@ -4,21 +4,18 @@ return {
     opts = {
       autoformat = false,
       servers = {
-        pyright = {
+        basedpyright = {
           handlers = {
             ["textDocument/publishDiagnostics"] = function() end,
           },
-          on_attach = function(client, _)
-            client.server_capabilities.codeActionProvider = false
-          end,
           settings = {
-            pyright = {
+            basedpyright = {
               disableOrganizeImports = true,
             },
             python = {
               analysis = {
                 autoSearchPaths = true,
-                typeCheckingMode = "basic",
+                typeCheckingMode = "standard",
                 useLibraryCodeForTypes = true,
               },
             },
@@ -30,22 +27,22 @@ return {
         },
       },
       setup = {
-        pyright = function()
-          require("lazyvim.util").lsp.on_attach(function(client, _)
-            if client.name == "pyright" then
+        basedpyright = function()
+          LazyVim.lsp.on_attach(function(client, _)
+            if client.name == "basedpyright" then
               -- disable hover in favor of jedi-language-server
               client.server_capabilities.hoverProvider = false
             end
           end)
         end,
-        ruff_lsp = function()
-          require("lazyvim.util").lsp.on_attach(function(client, _)
-            if client.name == "ruff_lsp" then
-              -- Disable hover in favor of Pyright
-              client.server_capabilities.hoverProvider = false
-            end
-          end)
-        end,
+        -- ruff_lsp = function()
+        --   LazyVim.lsp.on_attach(function(client, _)
+        --     if client.name == "ruff_lsp" then
+        --       -- Disable hover in favor of basedpyright
+        --       client.server_capabilities.hoverProvider = false
+        --     end
+        --   end)
+        -- end,
       },
     },
   },
@@ -57,7 +54,7 @@ return {
         root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
         sources = {
           nls.builtins.formatting.black.with({ { extra_args = { "--fast" } } }),
-          nls.builtins.formatting.isort.with { { extra_args = { "--profile", "black" } } },
+          nls.builtins.formatting.isort.with({ { extra_args = { "--profile", "black" } } }),
         },
       }
     end,

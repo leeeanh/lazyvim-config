@@ -2,7 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 -- keybindings
-vim.cmd 'vmap <C-c> "+y'
+vim.cmd('vmap <C-c> "+y')
 
 -- Comments
 vim.api.nvim_set_keymap("n", ",,", "<Plug>(comment_toggle_linewise_current)", { noremap = true, silent = true })

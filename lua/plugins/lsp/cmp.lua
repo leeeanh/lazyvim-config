@@ -3,18 +3,18 @@ return {
   ---@param opts cmp.ConfigSchema
   opts = function(_, opts)
     local cmp = require("cmp")
-    local cmp_window = require "cmp.config.window"
-    opts.sources = cmp.config.sources({
-      { name = "nvim_lsp" },
-      { name = "luasnip", max_item_count = 3 },
-      { name = "buffer",  max_item_count = 5, keyword_length = 5 },
-      { name = "path",    max_item_count = 5 },
-    })
+    local cmp_window = require("cmp.config.window")
+    -- opts.sources = cmp.config.sources({
+    --   { name = "nvim_lsp" },
+    --   { name = "snippets", max_item_count = 3 },
+    --   { name = "buffer", max_item_count = 5, keyword_length = 5 },
+    --   { name = "path", max_item_count = 5 },
+    -- })
     opts.window = {
       completion = cmp_window.bordered({ col_offset = -8 }),
       documentation = cmp_window.bordered(),
     }
-    opts.formatting.fields = { 'kind', 'abbr', 'menu' }
+    opts.formatting.fields = { "kind", "abbr", "menu" }
     opts.formatting.format = function(_, item)
       local icons = require("lazyvim.config").icons.kinds
       local kind = item.kind

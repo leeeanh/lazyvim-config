@@ -66,7 +66,7 @@ return {
         align = "right",
       },
     },
-  }
+  },
 }
 
 -- return {
