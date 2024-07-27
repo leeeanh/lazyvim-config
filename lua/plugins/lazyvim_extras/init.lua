@@ -7,6 +7,6 @@ return {
   { import = "lazyvim.plugins.extras.lsp.neoconf" },
   { import = "lazyvim.plugins.extras.lang.rust" },
   { import = "lazyvim.plugins.extras.ui.edgy" },
-  { import = "lazyvim.plugins.extras.lsp.none-ls" },
+  -- { import = "lazyvim.plugins.extras.lsp.none-ls" },
   { import = "lazyvim.plugins.extras.lang.helm" },
 }

@@ -1,7 +1,7 @@
 return {
   "LazyVim/LazyVim",
   opts = {
-    colorscheme = "oxocarbon",
+    colorscheme = "cyberdream",
     icons = {
       kinds = vim.tbl_map(function(icon)
         return icon .. " "

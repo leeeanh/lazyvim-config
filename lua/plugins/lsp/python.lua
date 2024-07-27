@@ -46,17 +46,24 @@ return {
       },
     },
   },
+  -- {
+  --   "nvimtools/none-ls.nvim",
+  --   opts = function()
+  --     local nls = require("null-ls")
+  --     return {
+  --       root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
+  --       sources = {
+  --         nls.builtins.formatting.black.with({ { extra_args = { "--fast" } } }),
+  --         nls.builtins.formatting.isort.with({ { extra_args = { "--profile", "black" } } }),
+  --       },
+  --     }
+  --   end,
+  -- },
   {
-    "nvimtools/none-ls.nvim",
-    opts = function()
-      local nls = require("null-ls")
-      return {
-        root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
-        sources = {
-          nls.builtins.formatting.black.with({ { extra_args = { "--fast" } } }),
-          nls.builtins.formatting.isort.with({ { extra_args = { "--profile", "black" } } }),
-        },
-      }
+    "stevearc/conform.nvim",
+    dependencies = { "mason.nvim" },
+    opts = function(_, opts)
+      opts.formatters_by_ft.python = { "ruff_format" }
     end,
   },
   -- require("util.mason").add_ensure_installed("python-lsp-server"),
