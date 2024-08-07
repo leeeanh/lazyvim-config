@@ -11,6 +11,7 @@ return {
           settings = {
             basedpyright = {
               disableOrganizeImports = true,
+              typeCheckingMode = "basic",
             },
             python = {
               analysis = {
@@ -35,14 +36,14 @@ return {
             end
           end)
         end,
-        -- ruff_lsp = function()
-        --   LazyVim.lsp.on_attach(function(client, _)
-        --     if client.name == "ruff_lsp" then
-        --       -- Disable hover in favor of basedpyright
-        --       client.server_capabilities.hoverProvider = false
-        --     end
-        --   end)
-        -- end,
+        ruff_lsp = function()
+          LazyVim.lsp.on_attach(function(client, _)
+            if client.name == "ruff_lsp" then
+              -- Disable hover in favor of basedpyright
+              client.server_capabilities.hoverProvider = false
+            end
+          end)
+        end,
       },
     },
   },
