@@ -36,6 +36,14 @@ return {
             end
           end)
         end,
+        jedi_language_server = function()
+          LazyVim.lsp.on_attach(function(client, _)
+            if client.name == "jedi_language_server" then
+              -- disable hover in favor of jedi-language-server
+              client.server_capabilities.definitionProvider = false
+            end
+          end)
+        end,
         ruff_lsp = function()
           LazyVim.lsp.on_attach(function(client, _)
             if client.name == "ruff_lsp" then

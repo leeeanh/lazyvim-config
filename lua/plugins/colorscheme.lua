@@ -1,5 +1,6 @@
 return {
   "nyoom-engineering/oxocarbon.nvim",
+  "yorumicolors/yorumi.nvim",
   {
     "rebelot/kanagawa.nvim",
     config = function()
