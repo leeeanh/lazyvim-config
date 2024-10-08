@@ -22,7 +22,7 @@ return {
             },
           },
         },
-        ruff_lsp = {},
+        ruff = {},
         jedi_language_server = {
           cmd = { "jedi-language-server" },
         },
@@ -44,9 +44,9 @@ return {
             end
           end)
         end,
-        ruff_lsp = function()
+        ruff = function()
           LazyVim.lsp.on_attach(function(client, _)
-            if client.name == "ruff_lsp" then
+            if client.name == "ruff" then
               -- Disable hover in favor of basedpyright
               client.server_capabilities.hoverProvider = false
             end
@@ -72,7 +72,7 @@ return {
     "stevearc/conform.nvim",
     dependencies = { "mason.nvim" },
     opts = function(_, opts)
-      opts.formatters_by_ft.python = { "ruff_format" }
+      opts.formatters_by_ft.python = { "ruff_format", "ruff_organize_imports" }
     end,
   },
   -- require("util.mason").add_ensure_installed("python-lsp-server"),
