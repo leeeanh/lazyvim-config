@@ -44,10 +44,35 @@ return {
     -- build = 'cargo build --release',
 
     opts = {
+      -- sources = {
+      --   providers = {
+      --     { "blink.cmp.sources.lsp", name = "LSP", score_offset = 1 },
+      --     {
+      --       "blink.cmp.sources.snippets",
+      --       name = "Snippets",
+      --       -- keyword_length = 1, -- not supported yet
+      --     },
+      --     {
+      --       "blink.cmp.sources.path",
+      --       name = "Path",
+      --       score_offset = 3,
+      --       opts = { get_cwd = vim.uv.cwd },
+      --     },
+      --     {
+      --       "blink.cmp.sources.buffer",
+      --       name = "Buffer",
+      --       keyword_length = 3,
+      --       score_offset = -1,
+      --       fallback_for = { "Path" }, -- PENDING https://github.com/Saghen/blink.cmp/issues/122
+      --     },
+      --   },
+      -- },
       keymap = {
-        accept = { "<Tab>", "<CR>" },
-        select_prev = { "<Up>", "<C-j>", "<C-p>" },
-        select_next = { "<Down>", "<C-k>", "<C-p>" },
+        ["<CR>"] = { "select_and_accept", "fallback" },
+        ["<Down>"] = { "select_next" },
+        ["<Up>"] = { "select_prev" },
+        ["<C-n>"] = { "select_next", "fallback" },
+        ["<C-p>"] = { "select_prev", "fallback" },
       },
       highlight = {
         -- sets the fallback highlight groups to nvim-cmp's highlight groups
@@ -60,9 +85,17 @@ return {
           draw = "reversed",
           border = "single",
         },
-        signature_help = { border = "single" },
-        documentation = { border = "single", auto_show = true },
+        signature_help = { border = "rounded" },
+        documentation = {
+          border = "rounded",
+          min_width = 15,
+          max_width = 45, -- smaller, due to https://github.com/Saghen/blink.cmp/issues/194
+          max_height = 10,
+          auto_show = true,
+          auto_show_delay_ms = 250,
+        },
       },
+      ghost_text = { enabled = true },
 
       signature_help = { enabled = true },
       -- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'

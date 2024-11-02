@@ -9,8 +9,8 @@ return {
       require("window-picker").setup({
         selection_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
         filter_rules = {
-          include_current_win = false,
-          autoselect_one = true,
+          include_current_win = true,
+          autoselect_one = false,
           -- filter using buffer options
           bo = {
             -- if the file type is one of following, the window will be ignored
