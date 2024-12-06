@@ -57,13 +57,15 @@ return {
         -- will be removed in a future release, assuming themes add support
         use_nvim_cmp_as_default = true,
       },
-      windows = {
-        autocomplete = {
-          draw = { columns = { { "label", "label_description", gap = 1 }, { "kind_icon", gap = 1, "kind" } } },
-          border = "single",
-        },
-        signature_help = { border = "rounded" },
-        documentation = {
+      menu = {
+        draw = { columns = { { "label", "label_description", gap = 1 }, { "kind_icon", gap = 1, "kind" } } },
+        border = "single",
+      },
+      ghost_text = { enabled = true },
+
+      signature = { enabled = true, window = { border = "rounded" } },
+      documentation = {
+        window = {
           border = "rounded",
           min_width = 15,
           max_width = 45, -- smaller, due to https://github.com/Saghen/blink.cmp/issues/194
@@ -72,9 +74,6 @@ return {
           auto_show_delay_ms = 250,
         },
       },
-      ghost_text = { enabled = true },
-
-      signature_help = { enabled = true },
       -- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- adjusts spacing to ensure icons are aligned
       nerd_font_variant = "mono",
