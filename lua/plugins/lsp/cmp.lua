@@ -57,9 +57,11 @@ return {
         -- will be removed in a future release, assuming themes add support
         use_nvim_cmp_as_default = true,
       },
-      menu = {
-        draw = { columns = { { "label", "label_description", gap = 1 }, { "kind_icon", gap = 1, "kind" } } },
-        border = "single",
+      completion = {
+        menu = {
+          draw = { columns = { { "label", "label_description", gap = 1 }, { "kind_icon", gap = 1, "kind" } } },
+          border = "single",
+        },
       },
       ghost_text = { enabled = true },
 
