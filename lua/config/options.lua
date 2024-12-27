@@ -6,3 +6,4 @@ vim.wo.linebreak = true
 vim.wo.list = false
 vim.g.lazyvim_python_lsp = "basedpyright"
 vim.g.autoformat = true
+vim.g.lazyvim_blink_main = true
