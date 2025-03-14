@@ -8,4 +8,5 @@ return {
   { import = "lazyvim.plugins.extras.ui.edgy" },
   -- { import = "lazyvim.plugins.extras.lsp.none-ls" },
   { import = "lazyvim.plugins.extras.lang.helm" },
+  { import = "lazyvim.plugins.extras.lang.clangd" },
 }
